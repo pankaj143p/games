@@ -5,18 +5,39 @@ import { Gamepad2, Trophy, Target, Zap, Users } from 'lucide-react';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    padding: 15px 10px;
+    min-height: 100vh;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 10px 8px;
+  }
 `;
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 15px;
+    margin-top: 5px;
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -25,9 +46,16 @@ const Title = styled(motion.h1)`
   color: white;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   margin-bottom: 10px;
+  margin-top: 0;
   
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
   }
 `;
 
@@ -35,9 +63,14 @@ const Subtitle = styled(motion.p)`
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
+  margin: 0;
   
   @media (max-width: 768px) {
     font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
   }
 `;
 
@@ -47,32 +80,43 @@ const GamesGrid = styled.div`
   gap: 20px;
   max-width: 1200px;
   width: 100%;
+  margin-bottom: 20px;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 15px;
+    max-width: 500px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 12px;
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 `;
 
-const GameCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 25px;
+const GameCard = styled.div`
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 16px;
+  padding: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   
   &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    border-color: #00d4ff;
+    box-shadow: 0 16px 48px rgba(0, 212, 255, 0.3);
   }
   
-  &:active {
-    transform: translateY(-2px);
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 12px;
+    
+    &:hover {
+      transform: translateY(-4px);
+    }
   }
 `;
 
@@ -94,17 +138,27 @@ const GameIcon = styled.div`
 `;
 
 const GameTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 10px 0;
   color: white;
-  margin-bottom: 8px;
+  font-weight: 600;
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin: 8px 0;
+  }
 `;
 
 const GameDescription = styled.p`
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-  margin-bottom: 15px;
+  color: #b8d4f0;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 `;
 
 const GameFeatures = styled.div`
@@ -124,30 +178,57 @@ const Feature = styled.span`
 
 const StatsSection = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 40px;
   margin: 30px 0;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  max-width: 600px;
-  width: 100%;
+  
+  @media (max-width: 768px) {
+    gap: 25px;
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+  }
 `;
 
 const StatItem = styled.div`
   text-align: center;
   color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 120px;
+  
+  @media (max-width: 480px) {
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 100px;
+  }
 `;
 
 const StatValue = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 5px;
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
 `;
 
 const StatLabel = styled.div`
   font-size: 0.9rem;
   opacity: 0.8;
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const games = [
