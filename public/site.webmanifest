@@ -1,0 +1,25 @@
+{
+  "name": "DDGaming Scrolly",
+  "short_name": "DDGaming",
+  "description": "Premium Mobile Gaming Experience - 5 High-Quality Games",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#764ba2",
+  "orientation": "portrait-primary",
+  "categories": ["games", "entertainment"],
+  "lang": "en-US"
+}

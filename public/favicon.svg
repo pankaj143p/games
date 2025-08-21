@@ -1,0 +1,27 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  
+  <!-- Game icon (joystick/controller) -->
+  <path d="M8 14h16c2 0 4 2 4 4v6c0 2-2 4-4 4H8c-2 0-4-2-4-4v-6c0-2 2-4 4-4z" fill="white" opacity="0.9"/>
+  
+  <!-- D-pad -->
+  <rect x="10" y="17" width="2" height="6" rx="1" fill="#667eea"/>
+  <rect x="9" y="18" width="4" height="2" rx="1" fill="#667eea"/>
+  
+  <!-- Buttons -->
+  <circle cx="20" cy="18" r="1.5" fill="#764ba2"/>
+  <circle cx="23" cy="18" r="1.5" fill="#764ba2"/>
+  <circle cx="21.5" cy="20.5" r="1.5" fill="#764ba2"/>
+  <circle cx="21.5" cy="15.5" r="1.5" fill="#764ba2"/>
+  
+  <!-- Gaming spark -->
+  <text x="24" y="10" font-family="Arial" font-size="8" fill="#ffd93d">🎮</text>
+</svg>
