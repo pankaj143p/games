@@ -388,11 +388,6 @@ function SnakeGame({ onScoreUpdate, onGameEnd }) {
     setGameRunning(false);
   };
 
-  const toggleGame = useCallback(() => {
-    if (gameOver) return;
-    setGameRunning(!gameRunning);
-  }, [gameOver, gameRunning]);
-
   const resetGame = () => {
     setSnake(INITIAL_SNAKE);
     setFood({ x: 15, y: 15 });

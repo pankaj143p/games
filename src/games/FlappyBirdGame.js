@@ -342,6 +342,14 @@ function FlappyBirdGame({ onScoreUpdate, onGameEnd }) {
     };
   }, [gameLoop, gameRunning]);
 
+  const startGame = useCallback(() => {
+    setGameRunning(true);
+    setGameOver(false);
+    setGameStarted(true);
+    setBird({ x: 100, y: 300, velocity: 0 });
+    setPipes([generatePipe(gameWidth)]);
+  }, [generatePipe, gameWidth]);
+
   // Controls
   useEffect(() => {
     const handleClick = () => {
@@ -388,14 +396,6 @@ function FlappyBirdGame({ onScoreUpdate, onGameEnd }) {
       document.removeEventListener('keydown', handleKeyPress);
     };
   }, [jump, gameStarted, startGame]);
-
-  const startGame = useCallback(() => {
-    setGameRunning(true);
-    setGameOver(false);
-    setGameStarted(true);
-    setBird({ x: 100, y: 300, velocity: 0 });
-    setPipes([generatePipe(gameWidth)]);
-  }, [generatePipe, gameWidth]);
 
   const resetGame = () => {
     setGameRunning(false);
