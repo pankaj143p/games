@@ -220,12 +220,17 @@ function SnakeGame({ onScoreUpdate, onGameEnd }) {
 
   const generateFood = useCallback(() => {
     let newFood;
+    const isValidPosition = (x, y) => {
+      return !snake.some(segment => segment.x === x && segment.y === y);
+    };
+    
     do {
       newFood = {
         x: Math.floor(Math.random() * gridCols),
         y: Math.floor(Math.random() * gridRows)
       };
-    } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+    } while (!isValidPosition(newFood.x, newFood.y));
+    
     return newFood;
   }, [snake, gridCols, gridRows]);
 
@@ -286,6 +291,11 @@ function SnakeGame({ onScoreUpdate, onGameEnd }) {
 
     return () => clearInterval(gameLoopRef.current);
   }, [moveSnake, gameRunning, speed]);
+
+  const toggleGame = useCallback(() => {
+    if (gameOver) return;
+    setGameRunning(!gameRunning);
+  }, [gameOver, gameRunning]);
 
   // Touch controls
   useEffect(() => {
@@ -367,7 +377,7 @@ function SnakeGame({ onScoreUpdate, onGameEnd }) {
       document.removeEventListener('touchend', handleTouchEnd);
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [direction, gameRunning]);
+  }, [direction, gameRunning, toggleGame]);
 
   const startGame = () => {
     setGameRunning(true);
@@ -378,10 +388,10 @@ function SnakeGame({ onScoreUpdate, onGameEnd }) {
     setGameRunning(false);
   };
 
-  const toggleGame = () => {
+  const toggleGame = useCallback(() => {
     if (gameOver) return;
     setGameRunning(!gameRunning);
-  };
+  }, [gameOver, gameRunning]);
 
   const resetGame = () => {
     setSnake(INITIAL_SNAKE);
