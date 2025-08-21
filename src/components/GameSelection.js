@@ -10,17 +10,17 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-sizing: border-box;
+  overflow-y: auto;
   
   @media (max-width: 768px) {
-    padding: 15px 10px;
-    min-height: 100vh;
+    padding: 15px 10px 30px 10px;
   }
   
   @media (max-width: 480px) {
-    padding: 10px 8px;
+    padding: 10px 8px 25px 8px;
   }
 `;
 

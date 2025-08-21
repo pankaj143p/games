@@ -11,11 +11,10 @@ import ScoreSystem from './components/ScoreSystem';
 
 const AppContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
 `;
 
